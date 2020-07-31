@@ -1,5 +1,52 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Spin-off z "Wyzwanie: Stoper - tru!"</title>
+    </head>
+    <body>
+        <button id="start-button" type="button">Start</button>
+        <button id="stop-button" type="button">Stop</button>
+        <button id="reset-button" type="button">Reset</button>
+        <p>
+            <span id="seconds">0</span> seconds have gone by!
+        </p>
+        <script>
+        
+            var startButton = document.getElementById("start-button");
+            var seconds = document.getElementById("seconds");
+            var countUp = function() {
+                seconds.textContent = parseFloat(seconds.textContent) +1 ;
+            
+            }; 
+            var timer;
+            var startCountUp = function() {
+                timer = window.setInterval(countUp,1000);
+                
+            };
+            startButton.addEventListener("click", startCountUp);
+            // Make it count up on a timer, calling this function
+            
+            // How can you make it stop counting?
+            var stopCountUp = function() {
+                window.clearInterval(timer);
+            };
+            var stopButton = document.getElementById("stop-button");
+            stopButton.addEventListener("click", stopCountUp);
+            
+            var resetButton = document.getElementById("reset-button");
+            resetButton.addEventListener("click", function(){seconds.textContent = 0});
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+/*<!DOCTYPE html>
+<html>
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -65,3 +112,4 @@
   
   </body>
 </html>
+*/
